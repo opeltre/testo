@@ -29,7 +29,7 @@ let unit = () => {
 }
 ```
 
-## Writing unit tests 
+## Running tests
 
 Each testing file exports a collection of unit tests,
 which are functions to the `Tracer` monad. 
@@ -44,7 +44,6 @@ to be tested to `test.run`, e.g.
 
 ```js
 //  tests.js
-
 let test = require('@opeltre/testo');
 
 let a = require('./fileA.js'),
@@ -52,30 +51,40 @@ let a = require('./fileA.js'),
 
 test.run({a, b}); 
 ``` 
+Running `$ node tests.js` will then log all 
+encountered errors if any, and provide some feedback. 
+
+## Writing unit tests 
 
 The main `test` object exports comparison functions 
 to conveniently write these tests. 
 
 ```js 
 //  fileA.js
-
 let test = require('@opeltre/testo');
 
 //     .t1 : () -> Tracer ()
-exports.t1 = () => 
-    test([0, 1, 2], [0, 1, 3]);
+exports.t1 = () => {
+    let expect = [0, 1, 2],
+        obtain = [0, 1, 3]; 
+    return test(expect, obtain);
+}
 
 //     .t2 : () -> Tracer ()
 exports.t2 = () => 
-    test.subrecord({a: [0, 1]}, {a: [0, 1], b: [1, 2]})
+    let expect = {a: [0, 1]},
+        obtain = {a: [0, 1], b: [1, 2]};
+    return test(expect, obtain); 
+}
 ``` 
 
-## npm 
+## Using with npm
 
-Edit `package.json` to: 
+Edit your `package.json` to:
 
 ```
 ... "test": "node tests.js"
 ```
 
 And run `$ npm test`
+
