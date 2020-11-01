@@ -2,6 +2,10 @@
 
 A small testing utility based on the Writer monad. 
 
+```
+npm i @opeltre/testo
+```
+
 ## Tracer Monad 
 
 The `Tracer` monad logs strings alongside `Maybe` values. 
@@ -39,8 +43,8 @@ which are functions to the `Tracer` monad.
     Unit = () -> Tracer a
 ```
 
-Units are run one by one by providing files
-to be tested to `test.run`, e.g.
+Units are run one by one by providing `test.run` 
+the files to be tested, e.g.
 
 ```js
 //  tests.js
