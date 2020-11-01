@@ -1,0 +1,28 @@
+{
+  "name": "@opeltre/testo",
+  "version": "0.0.0",
+  "description": "Testing utility based on writer & error monads",
+  "main": "index.js",
+  "scripts": {
+    "test": "\"echo 'check yourself'\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/opeltre/testo.git"
+  },
+  "keywords": [
+    "test",
+    "monad",
+    "debug",
+    "traceback"
+  ],
+  "author": "Olivier Peltre",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/opeltre/testo/issues"
+  },
+  "homepage": "https://github.com/opeltre/testo#readme",
+  "dependencies": {
+    "lolo": "^1.1.0"
+  }
+}
